@@ -1,35 +1,20 @@
-var R1;
-var R2;
-var R;
-var B;
+var earth, sun ;
+
+function preload() {
+sun = LoadImage("sun.png");
+earth =  LoadImage("earth.png")
+}
 
 function setup() {
-  createCanvas(1200,800);
-  R1 = createSprite(200, 200, 50, 80);
-  R2 = createSprite(400,200,80,30);
-  R = "red";
-  B = "blue";
+  createCanvas(400,400);
+  sun = createSprites(200,200,20,20);
+  sun.scale = sun.scale + 1;
+  earth = createSprites(300,200,20,20);
+  earth.scale = 0.5;
 }
 
 function draw() {
-  background(0,0,0);  
-
- R2.x = World.mouseX;
- R2.y = World.mouseY;
-
- console.log(R1.width/2 + R2.width/2);
-
- if (R2.x - R1.x < R1.width/2 + R2.width/2 && R1.x - R2.x < R2.width/2 + R1.width/2 && R2.y - R1.y < R1.height/2 + R2.height/2 && R1.y - R2.y < R2.height/2 + R1.height/2 ){
-   R1.shapeColor = "Blue";
-   R2.shapeColor = "Red";
-   background(World.mouseX,World.mouseY,255);
- }
-
- else {
-   R1.shapeColor = "Grey";
-   R2.shapeColor = "Grey";
-   background(World.mouseY,0,World.mouseX);
- }
-
+  background(0,0,0); 
+  sun.scale = sun.scale + 1;
   drawSprites();
 }
