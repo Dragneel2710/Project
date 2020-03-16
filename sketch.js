@@ -1,33 +1,30 @@
-const World = Matter.World;
-const Engine = Matter.Engine;
-const Bodies = Matter.Bodies;
-var engine;
-var world;
-var body;
-var ground
-
+var boxes = [];
+var Slider;
+ 
 function setup() {
-  createCanvas(400,400);
- engine = Engine.create();
- world = engine.world;
- var option2 = {
-   restitution : 1, density : 10
- }
- body = Bodies.rectangle(200,200,20,20,option2);
- var options = {
-    isStatic : true
- }
- ground = Bodies.rectangle(200,380,300,1,options);
- World.add(world,body);
- World.add(world,ground);
- console.log(body.position.x);
+    createCanvas(400, 400);
+    Slider = createSlider(0, 100, 50);
+    Slider.position(40, 365);
+    Slider.input = map(engine.world.gravity, Slider.min, Slider.max, 0, 1);
 }
-
+ 
+function mousePressed() {
+    if (mouseY < 350) {
+    }
+}
+ 
 function draw() {
-  background(255,0,0);  
- Engine.update(engine);
-  rectMode(CENTER);
-  rect(body.position.x,body.position.y,50,50);
-  rect(ground.position.x,ground.position.y,500,10)
-
+    background(51);
+    var fVal = Slider.value();
 }
+ 
+function Box(x, y, w, h, options) {
+
+   
+    var options = {
+
+    }
+ 
+    this.show = function () {
+    }
+  }
